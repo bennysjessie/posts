@@ -1,0 +1,647 @@
+
+{% extends 'base.html' %}
+{% load static %}
+ {% load i18n %}
+ {% load comments %}
+ {% load comments_xtd %}
+ {% load static %}
+{% load social_share %}
+{% load crispy_forms_tags %}
+        <link rel="canonical" href="https://www.benchatronics.com/detail/{{detail.slug}}"/>
+        <link rel="pingback" href="">
+        <meta property="article:published_time" content="{{detail.publish|date:"d F Y"}}">
+        <meta property="article:modified_time" content="">
+        {% block keywords %}
+        <meta name="keywords" content="{{detail.keyword}}">
+        {% endblock keywords %}
+        {% block author %}
+        <meta name="author" content="{{detail.author.first_name}}" />
+        {% endblock author %}
+        <meta name="msvalidate.01" content="4210F1A90F304BADD4820EE435F15DAB" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        {% block description %}
+        <meta name="description" content="{{detail.description}}" />
+        {% endblock description %}
+        {% block title %}
+        <title>{{detail.title}} - Benchatronics</title>
+        {% endblock title %}
+          {% block content %}
+          <!---blog.html content-->
+
+          {% endblock content %}
+
+          {% block post %}
+
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+
+               <div class="col-lg-8">
+
+                    <!-- Featured blog post-->
+                    <div class="mb-4">
+
+                           <style type="text/css">.p-c {
+                             -webkit-user-select: none; /* Safari */
+                             -ms-user-select: none; /* IE 10 and IE 11 */
+                              user-select: none; /* Standard syntax */
+                               }
+                           </style>
+                        <hr>
+                        <div class="card-body">
+                             <p class="fs-3 mb-2 "><h3>{{detail.title|safe|title}}</h3></p>
+                            
+
+                          <div class="text-secondary">Please like,Share and comment</div>
+                          <br>
+                          <span style="font-size:15px;float:left;margin-left:10px;"class="fa-2x nav-item"> {% post_to_linkedin object_or_url %}</span>
+                          <span style="color:#0088cc; float:left;margin-left:10px;" class="nav-item"> {% post_to_telegram "New Post: {{detail.title}}" object_or_url '<i class="fa-brands fa-instagram fa-2x"></i>' %}</span>
+                          <span style="float:left;margin-left:10px;" class="nav-item">{% post_to_facebook object_or_url '<i class="fab fa-facebook fa-2x"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_twitter "New Post: {{detail.title}}. Check it out!" object_or_url '<i class="fa-brands fa-twitter fa-2x"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_telegram "New Post: {{detail.title}}. Check it out!" object_or_url '<i class="fa-brands fa-telegram fa-2x"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_reddit "New Post: {{detail.title}}. Check it out!" object_or_url '<i class="fa-brands fa-reddit fa-2x"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item">{% post_to_whatsapp object_or_url '<i class="fa-brands fa-whatsapp fa-2x"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item">{% post_to_gplus object_or_url '<i class="fa fa-google-plus-official fa-2x" aria-hidden="true"></i>' %}</span>
+
+
+                          <br><br><br>
+
+                   
+                        <div class="text-muted fst-italic mb-2">Published on {{detail.publish|date:"d F Y"}} Last&nbsp;Updated on - {{detail.updated|date:"d F Y"}}</div>
+                        <p class="text-muted fst-italic mb-2"><a href="#author">Published by {{detail.author}}</a></p>
+                        <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'blog' %}">django </a>
+                        <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'pythons' %}">python</a>
+                        <div class="text-muted fst-italic mb-2">Difficulty : {{detail.level}}</div>
+
+                            {% if user.is_superuser %}
+                            <div class="text-muted fst-italic mb-2"><a href="{% url 'edit_post' detail.slug %}">Edit Post</a></div>
+                           <div class="text-muted fst-italic mb-2"><a href="{% url 'delete_post' detail.slug %}">Delet Post</a></div>
+
+                           {% endif %}
+                           <hr>
+                           <!---advert--->
+                            <!---ends here-->
+
+                        <!-- Preview image figure-->
+                        {% if detail.image %}
+
+                        <figure style="margin-right:10px;" class="mb-4"><img class="img-fluid rounded" src="{{detail.image.url}}" alt="Details" /></figure>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
+                         {% if detail.url_image %}
+
+                        <figure style="margin-right:10px;" class="mb-4"><img class="img-fluid rounded" src="{{detail.url_image}}" alt="Details" /></figure>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
+
+                        <!-- Post content-->
+                        <section class="mb-5">
+
+                            <div class="fs-5 mb-4 post_content">{{detail.content|safe}} {{detail.summer_content|safe}}</div>
+
+
+                             <!-- Ezoic - mid_content - mid_content -->
+                                <div id="ezoic-pub-ad-placeholder-102"> </div>
+                              <!-- End Ezoic - mid_content - mid_content -->
+                             <br>
+                             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                    crossorigin="anonymous"></script>
+                                    <ins class="adsbygoogle"
+                                    style="display:block"
+                                    data-ad-format="autorelaxed"
+                                    data-ad-client="ca-pub-3296432382274507"
+                                    data-ad-slot="6805012735"></ins>
+                                    <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+                                                            <div id="ezoic-pub-ad-placeholder-110">
+                                                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                    crossorigin="anonymous"></script>
+                                    <ins class="adsbygoogle"
+                                    style="display:block"
+                                    data-ad-format="autorelaxed"
+                                    data-ad-client="ca-pub-3296432382274507"
+                                    data-ad-slot="3348149307"></ins>
+                                    <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+                                    </div>
+
+                              {% get_comment_count for detail as comment_count %}
+                                        <div class="py-4 text-center">
+                                          <a href="{% url 'blog' %}">Back to the post list</a>
+                                          &nbsp;&sdot;&nbsp;
+                                          {{ comment_count }} comment{{ comment_count|pluralize }}
+                                          ha{{ comment_count|pluralize:"s,ve" }} been posted.
+                                          <a class="btn btn-success" href="#comment">Post Your Comment </a>
+
+                                         <div id="comments"></div>
+
+
+
+                        {% if detail.allow_comments %}
+                        <div class="media-list">
+
+
+                            <h4 id="comment" class="card-title text-center pb-3">Post your comment</h4>
+                              {% render_comment_form for detail %}
+                          </div>
+                        </div>
+                        {% endif %}
+
+                        {% if comment_count %}
+                         <ul class="media-list">
+                          {% render_xtdcomment_tree for detail allow_flagging allow_feedback show_feedback %}
+                             </ul>
+                           {% endif %}
+
+                           <div id="ezoic-pub-ad-placeholder-110">
+
+
+
+                           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                    crossorigin="anonymous"></script>
+                                <ins class="adsbygoogle"
+                                    style="display:block"
+                                    data-ad-format="autorelaxed"
+                                    data-ad-client="ca-pub-3296432382274507"
+                                    data-ad-slot="6805012735"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                </div>
+                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                    crossorigin="anonymous"></script>
+                                <ins class="adsbygoogle"
+                                    style="display:block"
+                                    data-ad-format="autorelaxed"
+                                    data-ad-client="ca-pub-3296432382274507"
+                                    data-ad-slot="6805012735"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+
+
+                           <div id="ezoic-pub-ad-placeholder-106">
+
+                           <!---google adsense -->
+                       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                     crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                    style="display:block"
+                       data-ad-format="autorelaxed"
+                       data-ad-client="ca-pub-3296432382274507"
+                       data-ad-slot="3348149307">
+                     </ins>
+                    <script>
+                          (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <!--adsense ends here -->
+
+                       </div>
+
+                        </div>
+
+                    </div>
+                    <!--cards-->
+
+                       <!-- <p style="font-size:20px;color:orangered;">Important Django/Python Posts</p>--->
+                           <p style="color:white;"><a style="text-decoration:none;" href=""></a></p>
+
+         <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                    {% for post in page_obj.object_list %}
+
+                    <div class="col mb-5">
+                        <div class="h-100">
+                            <!-- Product image-->
+                            {% if post.url_image %}
+                             <a href="{{post.get_absolute_url}}"><img class="img-fluid rounded card-img-top" src="{{post.url_image}}" alt="django images" /></a>
+                              {% endif %}
+                           <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="">
+                                    <!-- Product name-->
+                                      <h5 class="fw-bolder" style="color:white;"><a style="color:orangered; text-decoration:none;" href="#!"> {{post.title}}</a></h5>
+                                    <!-- Product price-->
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% for post in news %}
+
+
+                    <div class="col mb-5">
+                        <div class="h-100">
+                            <!-- Product image-->
+                            {% if post.url_image %}
+                             <a href="{{post.get_absolute_url}}"><img class="img-fluid rounded card-img-top" src="{{post.url_image}}" alt="django images" /></a>
+                              {% endif %}
+                           <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="">
+                                    <!-- Product name-->
+                                      <h5 class="fw-bolder" style="color:white;"><a style="color:orangered; text-decoration:none;" href="{{post.get_absolute_url}}"> {{post.title}}</a></h5>
+                                    <!-- Product price-->
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+      <!--cards-->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3296432382274507"
+     data-ad-slot="6805012735"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <div id="ezoic-pub-ad-placeholder-110">
+
+                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                crossorigin="anonymous"></script>
+                                <ins class="adsbygoogle"
+                                 style="display:block"
+                                data-ad-format="autorelaxed"
+                                 data-ad-client="ca-pub-3296432382274507"
+                                 data-ad-slot="6805012735"></ins>
+                                  <script>
+                                  (adsbygoogle = window.adsbygoogle || []).push({});
+                              </script>
+        </div>
+                                                <!--Ends here-->
+                        <!-- Pagination-->
+                        <nav aria-label="Pagination">
+                            <hr class="my-0" />
+                            <ul class="pagination justify-content-center my-4">
+                                {% if prev_post %}
+
+                                <li class="page-item disabled"><a class="page-link" href="{% url 'detail' prev_post.slug %}" tabindex="-1">{{ prev_post.title|truncatechars:10 }}</a></li>
+                            <!-- <li class="page-item active" aria-current="page"><a class="page-link" href="#!">Pre</a></li>-->
+                                <li class="page-item"><a class="page-link" href="{% url 'detail' prev_post.slug %}">Pre</a></li>
+                                {% else %}
+                                <p></p>
+                            {% endif %}
+
+                                {% if next_post %}
+
+                                <li class="page-item"><a class="page-link" href="{% url 'detail' next_post.slug %}">Next</a></li>
+                            <!-- <li class="page-item"><a class="page-link" href="#!"></a></li>-->
+                                <li class="page-item disabled"><a class="page-link" href="{% url 'detail' next_post.slug %}" tabindex="-1">{{ next_post.title|truncatechars:10 }}</a></li>
+                                <p></p>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                        </div>
+                                        <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <form method="get" action="{% url 'search' %}">
+                                    {{ form | crispy }}
+                                    {{form.media}}
+                               <!---<input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />--->
+                                <button class="btn btn-primary" id="submitBtn" type="submit">Go!</button>
+                               </form>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                    <!-- Categories widget-->
+                    <div class="mb-4">
+                        <div class="">Categories</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">Web Design</a></li>
+                                        <li><a href="#!">HTML</a></li>
+                                        <li><a href="#!">Freebies</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">JavaScript</a></li>
+                                        <li><a href="#!">CSS</a></li>
+                                        <li><a href="#!">Tutorials</a></li>
+
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <!-- about
+                    <div class="card mb-4">
+                        <div class="card-header">About-us</div>
+                        <div class="card-body">Our Tutorials are based on what we have practiced and found out that it works then we can publish it. Again we are working hard in making benchatronics to be the largest web developer's site on the internet, where newbies can solve their problems. That will be able to have at least 3 billion pages displayed each year. 60 million visitors each month just like other competiting site. What is Benchatronics? We create simplified and interactive learning experiences. Learning web development should be easy to understand and available for everyone, everywhere! Benchatronics is an online and offline school for web developers, covering all the aspects of web development.....</div>
+                       <p><a card-body target="_blank" href="">About Us</a></p>
+                    </div>-->
+
+                    <div class="card mb-4">
+                        <div class="card-header">Recent Post</div>
+                        <div class="card-body">
+                            <div style="padding:10px;" >
+                            {% for post in posts %}
+                           <p style="color:white;"><a style="text-decoration:none;" href="{{post.get_absolute_url}}"> {{post.title}}</a></p>
+                            {% endfor %}
+
+                        </div>
+
+                        </div>
+
+                    </div>
+                    <style>
+                        .sticky{
+                            position:sticky;
+                            position:-webkit-sticky;
+                            top:0;
+                        }
+                    </style>
+
+                    <div class="sticky mb-4">
+                        <div class="card-body"></div>
+                        <div class="card-body">
+
+                             <!-- Ezoic - sidebar_floating_1 - sidebar_floating_1 -->
+                             <div id="ezoic-pub-ad-placeholder-114"> </div>
+                             <!-- End Ezoic - sidebar_floating_1 - sidebar_floating_1 -->
+
+                             <br>
+                        </div>
+
+                    </div>
+                    <!---copy from here--->
+                    <div class="mb-4">
+                        <div class="card-body"></div>
+                        <div class="card-body">
+                             <!--EZIOC place holders-->
+                                <div id="ezoic-pub-ad-placeholder-110">
+
+                                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                                                    crossorigin="anonymous"></script>
+                                                                    <ins class="adsbygoogle"
+                                        style="display:block"
+                                        data-ad-format="autorelaxed"
+                                        data-ad-client="ca-pub-3296432382274507"
+                                                                    data-ad-slot="3348149307"></ins>
+                                                                    <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                                                    </script>
+                                  </div>
+                                <!-- Ezoic - sidebar_floating_2 - sidebar_floating_2 -->
+                              <div id="ezoic-pub-ad-placeholder-104"> </div>
+                              <!-- End Ezoic - sidebar_floating_2 - sidebar_floating_2 -->
+                              <!---end--->
+                        </div>
+
+                    </div>
+                    <!---stop the copy here--->
+
+                     <style>
+                        .sticky1{
+                            position:sticky;
+                            position:-webkit-sticky;
+                            top:200px;
+                        }
+                    </style>
+
+
+                    <div class="mb-4">
+                        <div class="card-body"></div>
+                        <div class="card-body">
+                            <div id="ezoic-pub-ad-placeholder-110">
+                              <!---google adsense -->
+                               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                 crossorigin="anonymous"></script>
+                                <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="autorelaxed"
+                                 data-ad-client="ca-pub-3296432382274507"
+                                 data-ad-slot="3348149307"></ins>
+                                <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                </div>
+                             <!--adsense ends here -->
+                             <br>
+                        </div>
+
+                    </div>
+                    <!---copy from here--->
+
+                    <!---copy from here--->
+                    <div class="mb-4">
+                        <div class="card-body"></div>
+                        <div class="card-body">
+
+                           <!-- Ezoic - long_content - long_content -->
+                          <div id="ezoic-pub-ad-placeholder-105"> </div>
+                          <!-- End Ezoic - long_content - long_content -->
+                            </div>
+                    </div>
+
+                     <!---copy from here--->
+                    <div class="mb-4">
+                        <div class="card-body"></div>
+                        <div class="card-body">
+
+                        </div>
+
+                    </div>
+                    <!---stop the copy here--->
+                     <style>
+                        .sticky2{
+                            position:sticky;
+                            position:-webkit-sticky;
+                            top:800px;
+                        }
+                    </style>
+
+
+                    <div class="mb-4">
+                        <div class="card-body"></div>
+                        <div class="card-body">
+                              <div id="ezoic-pub-ad-placeholder-105">
+
+                              <!---google adsense -->
+                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                                 crossorigin="anonymous"></script>
+                                <ins class="adsbygoogle"
+                                 style="display:block; text-align:center;"
+                                 data-ad-layout="in-article"
+                                 data-ad-format="fluid"
+                                 data-ad-client="ca-pub-3296432382274507"
+                                 data-ad-slot="8581638619"></ins>
+                                <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                             <!--adsense ends here -->
+                             <br>
+                              </div>
+
+                        </div>
+
+                    </div>
+                    <!---copy from here--->
+
+
+                    <div class="card mb-4">
+                        <div class="card-header">Article Researched</div>
+                        <div class="card-body">
+                              <div style="padding:10px;" >
+
+                                    <p style="color:white;"><a style="text-decoration:none;" href="#">{{detail.tags|safe}} </a></p>
+                               </div>
+                    </div>
+                      <div class="card mb-4">
+                        <div class="card-header">About The Author</div>
+                        <div class="card-body">
+                              {% if detail.author.profile %}
+
+                          {% if detail.author.profile.whatapp_url %}
+                         <!---- <a href="https://wa.me/08134892519 send?text=hello! I'm chatting from benchatronics.com!">whatsapp me</a>--->
+
+                         Connect me on
+                           <a placeholder = "hello" target="_blank" href="{{detail.author.profile.whatapp_url}}"><i style="margin-left:20px;font-size:30px;color:green;" class="fa-brands fa-whatsapp-square"></i></a>
+
+                        {% endif %}
+                        {% if detail.author.profile.facebook_url %}
+
+                        <a target="_blank" href="{{detail.author.profile.facebook_url}}"><i style="margin-left:20px;font-size:30px;color:blue;" class="fa-brands fa-facebook-square"></i></a>
+                         {% endif %}
+                         {% if detail.author.profile.google_url %}
+
+                         <a target="_blank" href="{{detail.author.profile.google_url}}"><i style="margin-left:20px;font-size:30px;color:#ccc;background:green;border-radius:40px;" class="fa-brands fa-google-plus">{{detail.author.profile.google_url}}</i></a>
+                         {% endif %}
+                          {% if detail.author.profile.linkeld_url %}
+
+                         <a target="_blank" href="{{detail.author.profile.linkeld_url}}"><i style="margin-left:20px;font-size:30px;color:#ccc;background:green;border-radius:40px;" class="fa-brands fa-linkedin">{{detail.author.profile.linkeld_url}}</i></a>
+                       {% endif %}
+                        </div>
+                        <div class="card-body">
+                             <!-- Preview image figure-->
+                       {% if detail.author.profile.profile_pic %}
+
+                        <figure class="mb-4"><img class="foto img-fluid rounded-circle" src="{{detail.author.profile.profile_pic.url}}" alt="my profile pics" /></figure>
+                        {% else %}
+                       <figure class="mb-4"><img class="foto text-center img-fluid rounded-circle" src="{% static 'images/profile_pics/profile.jpg' %}" alt="my profile pics" /></figure>
+
+                        {% endif %}
+
+
+                        <p id="author"></p>
+
+                        <!-- author's bio and  content-->
+                        {% if detail.author.profile.bio %}
+                           I'm {{detail.author.username}}! {{detail.author.profile.bio}}
+                        {% endif %}
+                        {% endif %}
+
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+<style>
+    .foto {
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 5px;
+  width: 100px;
+}
+</style>
+
+{% block extra-js %}
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script>
+ window.comments_props = {% get_commentbox_props for detail %};
+ window.comments_props_override = {
+     allow_comments: {%if detail.allow_comments%}true{%else%}false{%endif%},
+     allow_feedback: true,
+     show_feedback: true,
+     allow_flagging: true,
+     polling_interval: 5000  // In milliseconds.
+ };
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  crossorigin="anonymous"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+<script
+  type="text/javascript"
+  src="{% url 'javascript-catalog' %}"></script>
+<script src="{% static 'django_comments_xtd/js/vendor~plugin-2.9.8.js' %}"></script>
+<script src="{% static 'django_comments_xtd/js/plugin-2.9.8.js' %}"></script>
+<script>
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip({html: true});
+});
+</script>
+
+<!--to issue a warning if form is not saved-->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('PostForm');
+
+    // Add event listeners to relevant form fields (e.g., input, textarea, etc.)
+    const formFields = form.querySelectorAll('input, textarea');
+    formFields.forEach((field) => {
+      field.addEventListener('change', setFormChanged);
+    });
+
+    // Add event listener to reset the formChanged flag when the form is submitted
+    form.addEventListener('submit', resetFormChanged);
+
+    // Add event listener to warn on page leave
+    window.addEventListener('beforeunload', warnOnPageLeave);
+  });
+</script>
+
+
+<!-- Include the JavaScript file -->
+<script src="{% static 'form_warning.js' %}"></script>
+
+{% endblock %}
+{% endblock post %}
+

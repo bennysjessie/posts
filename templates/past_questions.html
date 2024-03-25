@@ -1,0 +1,4 @@
+{% for post in past_list %}
+<div class="container"><a href="{{post.get_absolute_url}}">{{post.title}}</a>
+</div>
+{% endfor %}

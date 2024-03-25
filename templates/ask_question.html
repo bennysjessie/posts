@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+{% block title %}Ask Question{% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-secondary border-bottom mb-4">
+            <div class="container">
+                <div class=" my-5">
+                    <h1 class="text-white fw-bolder">Ask Question</h1>
+                    <p class="text-white lead mb-0">Ask Question on any area of your interest, tips in choosing a right topic and asking a good question:
+                    <ul>
+                        <li class="text-white">
+                            Think of a detailed word that best describe your question
+
+                        </li class="text-white">
+                        <li class="text-white">
+                            summaries the detailed word in not less than 5 words at least, then use it as your topic
+
+                        </li>
+                        <li class="text-white">
+                            Enter a tag that best describe your question; You can enter multiple tags and separate them with  comma
+                        </li>
+                        <li class="text-white">
+                            While entering tag; make sure you separete your tags with space or coma, you can enter  multiple tages separated with coma.
+
+                            Our writing editor is very easy to use you can <a class="text-info" href="mailto:contact@benchatronics.com" target="_blank">contact us</a> if you dont know how to use it.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% if user.is_authenticated %}
+<form method="post">
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit" >Post</button>
+    </div>
+</form>
+{% else %}
+<div class="container">You are not allowed here</div>
+{% endif %}
+<script>
+    var name = "{{user.id}}";
+    document.getElementById("user_author").value = name;
+</script>
+
+{% endblock %}
+

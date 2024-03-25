@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% block title %}Edit My Profile{% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder text-white">You can Edit your Profile Twice a week</h1>
+                    <p class="lead mb-0 text-white">If you Think your details have been exposed to third party, things you can do are <ul><li><a class="text-danger" href="https://www.benchatronics.com/password/">change password</a></li> <li>Update your Profile</li> </ul> </p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages" >
+    {% for message in messages %}
+    <li
+        {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}
+    </li>
+    {% endfor %}
+
+</ul>
+{% endif %}
+{% if error %}
+{{ error }}
+{% endif %}
+
+
+
+
+
+<form method="post" enctype="multipart/form-data">
+
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="Update Profile">
+    </div>
+
+</form>
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% block title %}Update Profile {% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Update Your Profile <a class="text-white" href="{% url 'index' %}">Home</a></h1>
+                    <p class="lead mb-0">Welcome to Benchatronics</p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_staff or user.is_superuser %}
+<form method="post">
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit" >Update Profile</button>
+    </div>
+</form>
+{% else %}
+<div class="container">You are not allowed here</div>
+{% endif %}
+<script>
+    var name = "{{user.id}}";
+    document.getElementById("user_author").value = name;
+</script>
+
+{% endblock %}
+

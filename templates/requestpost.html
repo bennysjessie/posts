@@ -1,0 +1,43 @@
+ {% extends 'main.html' %}
+ {% block title %} Create|Update Post {% endblock %}
+ {% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="text-white fw-bolder">Create Post|Add Category</h1>
+                    <p class="text-white lead mb-0">Before a creating a post make sure you understand what you want to write about then give it a precise title,
+                    you can leave the slug empty provided there is title added.The writing materials provided to you is so enrich that you can write even code.
+                    You must abide to the community standards. if you post an irrelevant post your post would be deleted
+                    </p><br>
+                    <p class="text-info">Slug is a unique name that identifies your post on the server,always combine slug with highen. If you still don't Know what is slug leave it empty the title of your post would be prepopulated as slug</p>
+                    <p class="text-white">We have provided some space for youtube, facebook, and instagram post; If they are not available you can leave them blank.
+                    </p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+{% block content %}
+
+<div class="container">
+ {% if user.is_authenticated and user.is_staff or user.is_superuser %}
+
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'addschoolpost' %}">Create School.brainy Post</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'add_academic' %}">Create Academic Post</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'add_py' %}">Add Python Courses</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'add_php' %}">Add Php Courses</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'adminpost' %}">Create Article Post</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'addhealthpost' %}">Create Health Post</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'addpost' %}">Add Django Post</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'addcategory' %}">Add Category</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'add_ball' %}">FootBall</a></li>
+<li class="list-unstyled nav-item"><a class="nav-link" href="{% url 'add_flutter' %}">Add Flutter</a></li>
+
+{% else %}
+{% include 'rpost.html' %}
+
+{% endif %}
+</div>
+{% endblock content %}

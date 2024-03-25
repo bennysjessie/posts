@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% block title %}All comments{% endblock %}
+        {% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder text-white">Comments</h1>
+                    <p class="lead mb-0" text-white><a class="text-white" href="#">Post comments</a></p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+{% block content %}
+<div class="container">
+{% for comment in comments %}
+<div><a href="{% url 'comment' comment.pk %}">Post Title-{{comment.post}}</a></div>
+<div>Comment-{{comment.body}}</div>
+
+{% endfor %}
+</div>
+
+{% endblock content %}
+
+

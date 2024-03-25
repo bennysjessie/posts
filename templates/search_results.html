@@ -1,0 +1,30 @@
+   {% extends 'base.html' %}
+   {% load crispy_forms_tags %}
+
+   {% block content %}
+   <div class="container">
+    <h1>Search Results</h1>
+
+    <form method="get" action="{% url 'search' %}">
+        {{ form | crispy }}
+        {{form.media}}
+        <p></p>
+        <button class="btn btn-secondary" id="submitBtn" type="submit">Search</button>
+        <a href="{{request.META.HTTP_REFERER}}" style="margin-left:10px;" class="btn btn-primary">Go Back</a>
+    </form>
+
+    {% if results %}
+        <h2>Results:</h2>
+        <ul>
+            {% for result in results %}
+                <li><a href="{{result.get_absolute_url}}">{{ result|safe }}</a></li>
+                <p>{{ result.content|safe|striptags|truncatechars:150 }}</p>
+               
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class=""> No Result Found for the querry</p>
+    {% endif %}
+    </div
+
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends 'main.html' %}
+{% block title %}Oops! Page Not Found{% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="text-info fw-bolder">Page Not Found! </h1>
+                    <p class="text-white lead mb-0">Check back later, the file you requested is being updated </p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+{% load static %}
+{% block content %}
+    <title>Oops something's wrong?</title>
+{% endblock content %}

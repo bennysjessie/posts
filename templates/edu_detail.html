@@ -1,0 +1,72 @@
+      {% extends 'base.html' %}
+        {% load social_share %}
+        {% block title %}
+        <meta name="description" content="{{one_semester.description|title}}"/>
+        <meta name="author" content="{{one_semester.author}}" />
+        <title>{{one_semester.title|title}} - Benchatronics</title>
+        {% endblock title %}
+
+           {% block sidebar %}
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-success text-white">Year One/First Semester</div>
+                <div class="sidebar-heading border-bottom bg-dark text-white">Table Of Contents</div>
+                <!-- side bar-->
+                <div class="list-group list-group-flush">
+                    {% for first_semester in first_semester %}
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{first_semester.get_absolute_url}}">{{first_semester.topic}}</a>
+                    {% endfor %}
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'edit_academic' one_semester.slug %}">Edit</a>
+
+                    <li class="list-unstyled nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Year One</a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#!">Second Semester</a>
+                            <div class="dropdown-divider"></div>
+                          </div>
+                    </li>
+                </div>
+            </div>
+
+            {% endblock sidebar %}
+
+             {% block quest  %}
+
+
+                   <div style="background:rgb(65, 20, 3)" class="container-fluid">
+                    <h1 style="color:#fff;" class="text-center mt-4">Things you might have learnt at the end of this course</h1>
+                   <p></p>
+                    <p style="color:#fff;">
+
+                    <ul class="text-unstyled text-white">
+                        <li class="text-unstyled">
+                           <a class="text-unstyled text-white">{{one_semester.learning_objective|safe}}</a>
+                        </li>
+                    </ul>
+
+
+                    </p>
+
+                </div>
+        {% endblock quest %}
+
+{% block  content %}
+
+<hr>
+ <div class="container mt-2">
+ <article>
+                        <div class="socials text-muted fst-italic mb-2">share via </div>
+                         <div class="whatapp text-muted fst-italic mb-2"><i style="margin-left:20px;font-size:30px;color:green;" class="fa-brands fa-whatsapp-square">{% post_to_whatsapp object_or_url "WhatApp" %}</i></div>
+
+                         <div class="facebook text-muted fst-italic mb-2"><i style="margin-left:20px;font-size:30px;color:blue;" class="fa-brands fa-facebook-square">{% post_to_facebook object_or_url "Facebook" %}</i></div>
+                            </br></br></br>
+
+                        <p class="text-muted fst-italic mb-2">{{one_semester.read_min}} Estimated study Time</P>
+                            <div class="text-muted fst-italic mb-2">Last Updated on&nbsp;{{one_semester.date_added|date:"D F Y"}} written&nbsp;by&nbsp;<strong>{{one_semester.author.first_name|title}}</strong></div>
+
+                        <section class="mb-5">
+                            <div class="fs-5 mb-4">{{one_semester.content|safe}}</div>
+                          </section>
+                    </article>
+                    </div>
+
+{% endblock content %}

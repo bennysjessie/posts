@@ -1,0 +1,290 @@
+{% spaceless %}
+ {% load i18n %}
+ {% load comments %}
+ {% load comments_xtd %}
+ {% load static %}
+{% load social_share %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+
+         <!--adblocker-->
+       <script async src="https://fundingchoicesmessages.google.com/i/pub-3296432382274507?ers=1" nonce="NHnEXdQ8IJgAUSvr1-IUaw"></script><script nonce="NHnEXdQ8IJgAUSvr1-IUaw">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+       <div id="ezoic-pub-ad-placeholder-106">
+        <!---google adsense-->
+         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+          crossorigin="anonymous"></script>
+       <!---endadsense-->
+       </div>
+          <!-- Google Tag Manager (noscript) -->
+         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PQF35F2');</script>
+       <!-- End Google Tag Manager -->
+        <meta property="og:site_name" content="Benchatronics">
+        <meta name="fl-verify" content="99d80519a643283014ada7e5c8f24d25">
+        <meta property="type" content="website">
+        <meta property="og:locale" content="en_US">
+        <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#308D46">
+       <!---google fonts-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia"/>
+         <!-- Favicon-->
+        <link rel="icon" type="image/png" href="{% static 'images/icons/B.jpg' %}" />
+        {% block keywords %}
+        <meta name="keywords" content="">
+        {% endblock keywords %}
+        {% block author %}
+        <meta name="author" content="" />
+        {% endblock author %}
+        <meta charset="utf-8" />
+        {% block description %}
+        <meta name="description" content="" />
+        {% endblock description %}
+        {% block title %}
+        <title>Benchatronics - A Platform for All</title>
+        {% endblock title %}
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'styles.css' %}" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({extensions: ["tex2jax.js","[Contrib]/longdiv.js"],jax: ["input/TeX","output/HTML-CSS"],
+                tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+                TeX: {extensions: ["AMSmath.js","AMSsymbols.js"]}
+                });
+        </script>
+        <script>
+         MathJax = { loader: {load: ['input/asciimath', 'output/chtml']}}
+        </script>
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+       <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="https://kit.fontawesome.com/eb5100ca45.js" crossorigin="anonymous"></script>
+         <!--code snipet-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+        <!--code snipet ends here-->
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+    </head>
+    <body>   
+            
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                  {% block sidebar %}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <a class="navbar-brand" tab="_blank" href="https://www.benchatronics.com"></a>
+                      <li class="nav-item active"><a class="nav-link" href="{% url 'requestpost' %}">Create Post</a></li>  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                      <li class="nav-item"> <a class="nav-link" href="{% url 'search' %}">Search Topics</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="#">Mathematics</a></li>
+                      <li class="nav-item"><a class="nav-link"  href="#!">Physics</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#!">Chemistry</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="#!">Biology</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="#!">Computer Science</a></li>
+                     <li class="nav-item"> <a class="nav-link" href="{% url 'health' %}">Health</a></li>
+                      <li class="nav-item active"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
+                     <li class="nav-item active"><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
+                     <li class="nav-item active"><a class="nav-link" href="{% url 'lesson' %}">Join Our Class</a></li>
+                  </ul>
+                </div>
+                  {% endblock sidebar %}
+            </div>
+        </nav>
+
+
+        <!--second navbar-->
+
+         <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" style="color:rgb(122, 105, 10); font-style:italic; font-family: Verdana, Geneva, Tahoma, sans-serif;" target="_blank" href="https://www.benchatronics.com"><img style="border-radius:50px;" src="{% static 'images/icons/favicon-32x32.png' %}" alt="bct">Benchatronics</a>
+                       <!--my profile-->
+                       {% if user.is_authenticated %}
+                       {% if user.first_name or user.username %}
+                       <li style="list-style:none;" class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi {{user.first_name|truncatewords:6}} !</a>
+
+                         {% else %}
+
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Please Update your Profile to add your first name !</a>
+                       {% endif %}
+                       
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
+                            <a class="dropdown-item" href="https://www.benchatronics.com/password/">Change Password</a>
+                            <a class="dropdown-item" href="{% url 'my_profile' %}">My Post | Profile</a>
+                            {% if user.is_staff %}
+                            {% if user.profile.user %}
+                               <a class="dropdown-item" href="">Edit Author Profile</a>
+                            {% else %}
+                               <a class="dropdown-item" href="{% url 'create_profile' %}">Create Authors Profile</a>
+                            {% endif %}
+
+                            {% endif %}
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+
+                            <div class="dropdown-divider"></div>
+
+                        </div>
+                    </li>
+                    {% else %}
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active"><a style="margin-right:20px" class="nav-link" href="{% url 'login' %}">Signin</a></li>
+                       </ul>
+                       {% endif %}
+
+                       <!--my profile-end-->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item"><a class="nav-link" target="_blank" href="{% url 'index' %}">Home</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="{% url 'schoolpost' %}">Academics</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="{% url 'flutter_list' %}">Flutter</a></li>
+
+                                <li class="nav-item"><a class="nav-link" href="{% url 'article' %}">News/Article</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'guest_post' %}">Guest Post</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'phps' %}">Php</a></li>
+                               <li class="nav-item"> <a class="nav-link" href="{% url 'pythons' %}">Python</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{% url 'blog' %}">Django</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'script_list' %}">JavaScripts</a></li>
+                               <li class="nav-item"> <a class="nav-link"  href="{% url 'htmls' %}">Html</a></li>
+                              <li class="nav-item"> <a class="nav-link" href="#!">CSS</a></li>
+                             
+
+
+
+
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'past_questions' %}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Past Questions</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">year one</a>
+                                        <a class="dropdown-item" href="#!">year two</a>
+                                       <a class="dropdown-item"  href="{% url 'past_questions' %}">Past Questions</a>
+
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'about' %}">About</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <!-- Ezoic - mid_content - mid_content -->
+                 <div id="ezoic-pub-ad-placeholder-102"> </div>
+                  <!-- End Ezoic - mid_content - mid_content -->
+
+
+                <a class="btn btn-secondary" style="margin:20px;float:right" href="{% url 'add_blog' %}">Create Post</a>
+
+                <a class="btn btn-success" style="margin:20px;float:right" href="#">Ask Question</a>
+             <br><br>
+        <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 id="#typing-bot" class="text-success fw-bolder">
+                    </h1>
+                        {% for message in messages %}
+                      <div class="alert alert-warning alert-dismissible  fade show" role="alert">
+                       <strong>{{user.first_name}}, You got a message!</strong> {{message}}.
+                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                      </button>
+
+                         </div>
+                          {% endfor  %}
+                          <div id="ezoic-pub-ad-placeholder-107">
+
+                        <!---adsense-->
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+                             crossorigin="anonymous"></script>
+                                                                
+                                    <ins class="adsbygoogle"
+                                        style="display:block; text-align:center;"
+                                        data-ad-layout="in-article"
+                                        data-ad-format="fluid"
+                                        data-ad-client="ca-pub-3296432382274507"
+                                        data-ad-slot="8581638619"></ins>
+                                    <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+                            <!---adsense-->
+          </div>
+
+         </div>
+            </div>
+        </header>
+
+         {% block content %}
+          {% endblock content %}
+
+         {% block post %}
+
+          <div id="ezoic-pub-ad-placeholder-105"> </div>
+
+
+         {% endblock post %}
+
+        <!-- Footer-->
+        <footer class="py-4 navbar-expand-lg bg-dark">
+            <div class="container"><p class="m-0 text-center text-white"><a class="text-white text-decoration-none" target="_blank" href="#">About Page</a><a class="text-white text-decoration-none" href="#"> | Sitemaps </a>
+            <a class="text-white text-decoration-none" target="_blank" href="{% url 'contact' %}"> | Contact Us </a><a class="text-white text-decoration-none" target="_blank" href="#"> | About Us</a> <a class="text-white text-decoration-none" target="_blank" href="#"></a></div>
+            <div class="container"><p class="m-0 text-center text-white"><a class="text-white text-decoration-none" target="_blank" href="{% url 'terms' %}">Terms And Conditions</a>
+            <a class="text-white text-decoration-none" target="_blank" href="{% url 'privacy' %}"> | Privacy And Policy</a></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; benchatronics 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Some Rights Reserved</p></div>
+        </footer>
+       <div id="ezoic-pub-ad-placeholder-115"> </div>
+       <!-- End Ezoic - bottom_of_page - bottom_of_page -->
+        </div>
+         <div id="ezoic-pub-ad-placeholder-105"> </div>
+
+
+        <div class="cookie-container">
+            <button  class="cookie-btn">
+          Accept
+      </button>
+
+      <p>We use cookies in this website to give you the best experience on our site. Our site contains ads and affiliate links from trusted companies, When you CLICK on ads or BUY some products they compensate me which I use in maintaining this site.And on no account will I EARN from you. To find out more ,read our
+
+                        <a style="color:orangered ;
+                        cursor:pointer;
+                        text-decoration:underline;" href="{% url 'privacy' %}" target="_blank">Privacy Policy</a> And
+                        <a style=" color:orangered;
+                        cursor:pointer;
+                        text-decoration:underline;" href="{% url 'terms' %}" target="_blank">Terms and Conditions </a>
+                        </p>
+                        <br><br><br><br><br>
+
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'scripts.js' %}"></script>
+        <script src="{% static 'cookie.js' %}" type="text/javascript">
+       </script>
+     
+
+
+     <!-- online compiler -->
+       <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
+
+
+    </body>
+</html>
+{% endspaceless %}

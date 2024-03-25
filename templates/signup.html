@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% block title %} Register | benchatronics {% endblock %}
+
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder text-white">SignUp for Benchatronics</h1>
+                    <p class="lead mb-0"></p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% if user.is_authenticated %}
+<p>You are logged in </p>
+{% else %}
+<div class="container shadow rounded p-4 mb-5 bg-body">
+<form method="post" action="{% url 'signup' %}">
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit" >REGISTER</button>
+    </div>
+</form>
+</div>
+{% endif  %}
+{% endblock content %}

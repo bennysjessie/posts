@@ -1,0 +1,50 @@
+
+{% extends 'main.html' %}
+{% block title %}Page Not Found{% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="text-info fw-bolder">Page Not Found! </h1>
+                    <p class="text-white lead mb-0">Are you looking for anything that might has been deleted or you mistyped ? Check our post list instead in the navbar</p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops something's wrong?</title>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<style>
+
+.errorp{
+    font-family: Tahoma;
+    font-size: large;
+}
+</style>
+<div class="container">
+ <center>
+<div class="errorp"> Oops it seems the page you are looking for doesn't exits
+ <p> If you think that something else should be here,<a href="{% url 'contact' %}" target="_blank">Contact Us Now</a></p>
+ <p>Definitely try reconnecting or check your network connectivity</p>
+<p> Or navigate back to <a href="{% url 'index' %}">home</a></p>
+
+</div>
+</center>
+</div>
+</body>
+</html>
+{% endblock content %}

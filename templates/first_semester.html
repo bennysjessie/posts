@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+        <meta name="description" content="A detailed syllable for year one first semester for all colleges,polytechnics and Universities"/>
+        <meta name="author" content="benchatronics" />
+        <title>Year One First Semester - Benchatronics</title>
+        {% endblock title %}
+
+
+<!-- Sidebar-->
+           {% block sidebar %}
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-success text-white">Year One First Semester</div>
+                <div class="sidebar-heading border-bottom bg-dark text-white">Table Of Contents</div>
+
+                <div class="list-group list-group-flush">
+                    {% for first_semester in first_semester %}
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{first_semester.get_absolute_url}}">{{first_semester.topic}}</a>
+                    {% endfor %}
+                    <li class="list-unstyled nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Year One</a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#!">Second Semester</a>
+                            <div class="dropdown-divider"></div>
+                          </div>
+                    </li>
+                </div>
+            </div>
+
+            {% endblock sidebar %}
+            <!-- Page content-->
+            {% block quest %}
+                <div style="background:rgb(65, 20, 3)" class="container-fluid">
+                    <h1 style="color:#fff;" class="text-center mt-4">Educational Portal</h1>
+                    <p></p>
+                    <p style="color:#fff;">
+                    {% for first_semester in first_semester %}
+
+                        <ul class="text-white">
+                            <li>
+                                <a class="text-white" href="#!">{{first_semester.table_of_content|safe}}</a>
+                            </li>
+                        </ul>
+
+                       {% endfor %}
+                    </p>
+                </div>
+            {% endblock quest %}
+
+        {% block content %}
+        <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+        {% for first_semester in first_semester %}
+         <div class="container-fluid">
+            <div class="row">
+            <div class="col-lg-8">
+                <article style="background:rgb(65, 20, 3)">
+                    <!-- Post meta content-->
+                    <p class="text-center text-white bg-success"></p>
+                     <p class="text-center fs-4 text-white text-decoration-underline">{{first_semester.title|safe}}</p>
+                     <div style="margin-left:20px" class="text-center text-white fst-italic">Last Updated on&nbsp;{{first_semester.date_added|date:"D F Y"}}</div>
+                     <section class="mb-2">
+                    <div style="margin:20px"class="text-white fs-5 mb-2">
+                   {{first_semester.content|safe}}
+                    </div>
+                    </section>
+                </article>
+          </div>
+          </div>
+        </div>
+        {%  endfor %}
+        {% endblock content %}

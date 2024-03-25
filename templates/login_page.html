@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+            <!-- Page content-->
+            {% block quest %}
+                <div style="background:rgb(65, 20, 3)" class="container-fluid">
+                    <h1 class="text-white text-center mt-4">Please <a class="text-white btn btn-primary" href="{% url 'login' %}">Login</a> or <a class="btn btn-success text-white" href="{% url 'signup' %}">Create Account</a> to ask question or create post</h1>
+                    <p></p>
+                    <p style="color:#fff;">
+                        Why Create account with Benchatronics?
+                        <p class="text-white">There are some benefits,features and access you will get if you join us,they are listed below</p>
+                        <ul class="text-white">
+                            <li>
+                              You would be able to create post if you join us
+                            </li>
+                            <li>
+                              You would be able to ask question concerning the area of your interest if you join us
+                            </li>
+                            <li>
+                              You would be able to recieve update on news and tips in programming and general knowledge
+                            </li>
+                            <li>
+                              You would be able to answer questions asked in the forum
+                            </li>
+                            <li>
+                              You would be able to access a beautiful admin and profile created by benchatronics
+                            </li>
+                        </ul>
+                        <div class="btn btn-primary"><a class="text-white" href="{% url 'login' %}">Login</a></div>
+                        <div class="btn btn-primary"><a class="text-white" href="{% url 'signup' %}">Join Us Now</a></div>
+
+
+                    </p>
+                </div>
+            {% endblock quest %}
+{% block content %}
+{% endblock content %}

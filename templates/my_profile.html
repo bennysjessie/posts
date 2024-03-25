@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% block title %}benchatronics.com - A Website for All {% endblock %}
+
+ <!-- Page header with logo and tagline-->
+                  {% block name %}
+                    {% if user.first_name and user.last_name %}
+
+                         Hi,{{user.first_name}} {{user.last_name}}
+                    {% else %}
+                         Hi,{{user.username}}
+                   {% endif %}
+                   {% endblock name %}
+
+{% block content %}
+<div class="container">
+
+
+{% if post.title %}
+My post
+{% else %}
+
+{% endif %}
+
+{% for post in post %}
+
+{% if user.id == post.author.id or user.is_superuser %}
+<hr>
+<div class="card-body fs-3 mb-2">{{post.title}}</div>
+<div class="myfont fs-4 mb-4 post_content">{{post.body|safe}}</div>
+
+{% if user.is_superuser or  user.is_staff  %} <!--or user.id == post.author.id -->
+<div class="text-muted fst-italic mb-2"><a href="{% url 'edit_blog' post.slug %}">Edit Post</a></div>
+<div class="text-muted fst-italic mb-2"><a href="{% url 'delete_blog' post.slug %}">Delet Post</a></div>
+{% endif %}
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+{% endblock content %}

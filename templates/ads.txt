@@ -1,0 +1,2 @@
+#ads.txt for benchatronics.com
+google.com, pub-3296432382274507, DIRECT, f08c47fec0942fa0

@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% block title %} School Post{% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">add School post<a class="text-white" href="{% url 'index' %}">Home</a></h1>
+                    <p class="lead mb-0">We are Benchatronics</p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% if user.is_authenticated and user.is_staff or user.is_superuser %}
+<form method="post">
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit" >Post</button>
+    </div>
+</form>
+{% endif %}
+<script>
+    var name = "{{user.id}}";
+    document.getElementById("user_author").value = name;
+</script>
+
+{% endblock %}
+

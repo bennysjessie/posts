@@ -1,0 +1,46 @@
+
+{% extends 'main.html' %}
+{% block title %}Add Comment{% endblock %}
+        {% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder text-white">Add comment now Or go back <a class="text-white" href="{% url 'index' %}">Home</a></h1>
+                    <p class="lead mb-0" text-white>Your Email Address will Never be published</p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+{% load static %}
+{% block content %}
+
+  <div>
+    <a  class="btn btn-outline-dark" href="/">&#x2190;Go Back</a>
+  </div>
+  {%  for message in messages %}
+
+ <div class="mess">  <p> {{message}}</p></div>
+  {% endfor %}
+  <div class="con">
+
+        Add comment
+<div class="container m-2">
+
+    <form class="comment" method="post" action="">
+
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+        <div><em>Your Email address will NEVER be Published</em></div>
+        <br>
+         <input type="hidden" name="next" value="{{ request.path }}">
+        <input type="submit" name="Submit">
+    </form>
+
+
+</div>
+
+
+{% endblock content %}

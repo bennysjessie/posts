@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages" >
+    {% for message in messages %}
+    <li
+        {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}
+    </li>
+    {% endfor %}
+
+</ul>
+{% endif %}
+{% if error %}
+{{ error }}
+{% endif %}
+
+
+
+ {% if user.id == detail.author.id or user.is_superuser %}
+
+
+<form method="post" enctype="multipart/form-data">
+
+
+    <div id="form_warning" class="m-2 container ">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="Update Post">
+    </div>
+
+</form>
+{% else %}
+<div>You can't edit any post for now</div>
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form_warning','form-control');
+
+    // Add event listeners to relevant form fields (e.g., input, textarea, etc.)
+    const formFields = form.querySelectorAll('input, textarea');
+    formFields.forEach((field) => {
+      field.addEventListener('change', setFormChanged);
+    });
+
+    // Add event listener to reset the formChanged flag when the form is submitted
+    form.addEventListener('submit', resetFormChanged);
+
+    // Add event listener to warn on page leave
+    window.addEventListener('beforeunload', warnOnPageLeave);
+  });
+</script>
+
+
+
+
+
+<script>
+    var name = "{{user.id}}";
+    document.getElementById("user_author").value = name;
+</script>
+
+
+<!-- Include the JavaScript file -->
+<script src="{% static 'form_warning.js' %}"></script>
+
+{% endblock %}
+
+
+
+
+

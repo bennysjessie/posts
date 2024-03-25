@@ -1,0 +1,28 @@
+{% extends 'reach.html' %}
+{% load crispy_forms_tags %}
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "cxgc9wajks");
+</script>
+
+{% block title %} Contact us  | benchatronics {% endblock %}
+{% block name %}Send Us a message, Remember all fields are required; If you email is invalid how do you expect us to reach you ?
+Enter a valid email....
+{% endblock name%}
+
+{% block content %}
+<div class="mx-auto my-4 text-center">
+    <h1>Contact Us</h1>
+</div>
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+    <button class="btn btn-success my-3" type="submit">Send Message</button>
+    </form>
+</div>
+{% endblock %}

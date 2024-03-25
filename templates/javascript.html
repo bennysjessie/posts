@@ -1,0 +1,410 @@
+    {% load i18n %}
+    {% load comments %}
+    {% load comments_xtd %}
+    {% load static %}
+    {% load social_share %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQF35F2');</script>
+<!-- End Google Tag Manager -->
+        <meta charset="utf-8" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="" />
+        <meta property="og:url" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta property="og:description" content="{{detail.description}}" />
+        <meta name="keywords" content="{{detail.keyword}}">
+        <meta name="author" content="{{detail.author.first_name}}" />
+        <title>{{detail.title}} - Benchatronics</title>
+        <!-- Favicon-->
+
+        <link rel="icon" type="images/png" href="{% static 'images/icons/B.jpg' %}"/>
+        <!-- Core theme CSS (includes Bootstrap)-->
+
+        <link href="{% static 'styles.css' %}" rel="stylesheet" />
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+
+        <!--code snipet-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <!--code snipet ends here-->
+
+        <script src="https://kit.fontawesome.com/eb5100ca45.js" crossorigin="anonymous"></script>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <!--sendiblue chat box-->
+
+        <!-- Sendinblue Conversations {literal} -->
+        <script>
+            (function(d, w, c) {
+            w.SibConversationsID = '62f2974e32733c1a18166a9a';
+            w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+            };
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.sendinblue.com/sib-conversations.js';
+            if (d.head) d.head.appendChild(s);
+            })(document, window, 'SibConversations');
+        </script>
+        <!--mailchip integration form pop up -->
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b3f57e0de5d9df9d8dc8ebaf0/cee8018fc01261f950d88ad6a.js");</script>
+        <!----mailchip ends-->
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+     crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "cxgc9wajks");
+</script>
+
+
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQF35F2');</script>
+<!-- End Google Tag Manager -->
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="https://www.benchatronics.com">BlogTimes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'article' %}">Articles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mailto:cbnlinkschimexbn@gma.com">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Improve Page</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'logout' %}">logout</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'article' %}">Articles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mailto:cbnlinkschimexbn@gma.com">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Improve Page</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Signup</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">Welcome to benchatronics!</h1>
+                            {% if user.is_authenticated %}
+                            <h1 class="fw-bolder mb-1">Hi, {{user}}!</h1>
+                            {% else %}
+                            {% endif %}
+                            <!-- Post meta content-->
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">News Posts</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Article Posts</a>
+                            <br>
+                            <hr>
+                        </header>
+                         <div>share via</div>
+                          <span style="float:left;margin-left:10px;"class="nav-item"> {% post_to_linkedin object_or_url %}</span>
+                          <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_telegram "New Post: {{detail.title}}" object_or_url '<i class="fa-brands fa-instagram"></i>' %}</span>
+                          <span style="float:left;margin-left:10px;" class="nav-item">{% post_to_facebook object_or_url '<i class="fab fa-facebook"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_twitter "New Post: {{detail.title}}. Check it out!" object_or_url '<i class="fa-brands fa-twitter"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_telegram "New Post: {{detail.title}}. Check it out!" object_or_url '<i class="fa-brands fa-telegram"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item"> {% post_to_reddit "New Post: {{detail.title}}. Check it out!" object_or_url '<i class="fa-brands fa-reddit"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item">{% post_to_whatsapp object_or_url '<i class="fa-brands fa-whatsapp"></i>' %}</span>
+                         <span style="float:left;margin-left:10px;" class="nav-item">{% post_to_gplus object_or_url '<i class="fa fa-google-plus-official" aria-hidden="true"></i>' %}</span>
+
+
+                          <br><br><br>
+                        <p class="fs-3 mb-2 text-decoration-underline">{{detail.title|safe|title}}</p>
+
+
+                        <div class="text-muted fst-italic mb-2">Last Updated on - {{detail.date_added|date:"d F Y"}}</div>
+                        <p class="text-muted fst-italic mb-2"><a href="#author">Published by {{detail.author}}</a></p>
+
+                        <div class="text-muted fst-italic mb-2">{{detail.read_min}} read</div>
+
+                            {% if user.is_superuser %}
+                            <div class="text-muted fst-italic mb-2"><a href="{% url 'edit_blog' detail.slug %}">Edit Post</a></div>
+                           <div class="text-muted fst-italic mb-2"><a href="{% url 'delete_blog' detail.slug %}">Delet Post</a></div>
+
+                           {% endif %}
+                           <hr>
+
+                        <!-- Preview image figure-->
+                        {% if detail.image %}
+
+                        <figure style="margin-right:10px;" class="mb-4"><img class="img-fluid rounded" src="{{detail.image.url}}" alt="Details" /></figure>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
+                        <!-- Post content-->
+                        <section class="mb-5">
+                             {% if detail.table_of_contents %}
+                           <div class="fs-5 mb-4">{{detail.table_of_contents|safe|title}}</div>
+
+                            {% endif %}
+                           <a href=""></a>
+
+                            {% if detail.youtube_image %}
+                           <iframe class="fs-5 mb-4"  max-width="100%" src="{{detail.youtube_image}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            {% endif %}
+                              {% if detail.facebook_image %}
+                            <iframe src="{{detail.facebook_image}}" width="500" height="505" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                            {% endif %}
+                            <div class="fs-5 mb-4 post_content">{{detail.content|safe}}</div>
+                             <br>
+                             {% get_comment_count for detail as comment_count %}
+                                        <div class="py-4 text-center">
+                                          <a href="{% url 'blog' %}">Back to the post list</a>
+                                          &nbsp;&sdot;&nbsp;
+                                          {{ comment_count }} comment{{ comment_count|pluralize }}
+                                          ha{{ comment_count|pluralize:"s,ve" }} been posted.
+                                          <a class="btn btn-success" href="#comment">Post Your Comment </a>
+
+                                         <div id="comments"></div>
+
+
+                                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296432382274507"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3296432382274507"
+     data-ad-slot="3348149307"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <hr>
+
+
+                        {% if detail.allow_comments %}
+                        <div class="media-list">
+
+
+                            <h4 id="comment" class="card-title text-center pb-3">Post your comment</h4>
+                              {% render_comment_form for detail %}
+                          </div>
+                        </div>
+                        {% endif %}
+
+                        {% if comment_count %}
+                         <ul class="media-list bg-info text-white">
+                          {% render_xtdcomment_tree for detail allow_flagging allow_feedback show_feedback %}
+                             </ul>
+                           {% endif %}
+
+                             </section>
+                    </article>
+
+
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                    <div>
+
+                            <!--other posts-->
+                        <div style="background-image:repeating-linear-gradient(234deg,rgb(217, 220, 233);color:orangered" class="text-center  card-header bg-light">Similar Posts</div>
+                        <div style="padding:10px;" >
+                            {% for post in news %}
+                           <p style="color:white;"><a style="text-decoration:none;" href="{{post.get_absolute_url}}"> {{post.title}}</a></p>
+                            {% endfor %}
+
+                          </div>
+
+                            <!--other posts-->
+                        <div style="background-image:repeating-linear-gradient(234deg,rgb(217, 220, 233);color:orangered" class="text-center  card-header bg-light">Article Researched</div>
+                        <div style="padding:10px;" >
+
+                           <p style="color:white;"><a style="text-decoration:none;" href="#">{{detail.tags|safe}} </a></p>
+
+
+
+
+                          </div>
+                        </div>
+
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card mb-4">
+                        <div class="card-header">Categories</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">News</a></li>
+                                        <li><a href="#!">Money and Investment</a></li>
+                                        <li><a href="#!">Business</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">Life and Style</a></li>
+                                        <li><a href="#!">Magazine</a></li>
+                                        <li><a href="#!">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if detail.author.profile %}
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                          {% if detail.author.profile.whatapp_url %}
+
+                        <div class="card-header bg-body text-info">Connect me on
+                           <a target="_blank" href="{{detail.author.profile.whatapp_url}}"><i style="margin-left:20px;font-size:30px;color:green;" class="fa-brands fa-whatsapp-square"></i></a>
+
+                        {% endif %}
+                        {% if detail.author.profile.facebook_url %}
+
+                        <a target="_blank" href="{{detail.author.profile.facebook_url}}"><i style="margin-left:20px;font-size:30px;color:blue;" class="fa-brands fa-facebook-square"></i></a>
+                         {% endif %}
+                         {% if detail.author.profile.google_url %}
+
+                         <a target="_blank" href="{{detail.author.profile.google_url}}"><i style="margin-left:20px;font-size:30px;color:#ccc;background:green;border-radius:40px;" class="fa-brands fa-google-plus">{{detail.author.profile.google_url}}</i></a>
+                         {% endif %}
+                          {% if detail.author.profile.linkeld_url %}
+
+                         <a target="_blank" href="{{detail.author.profile.linkeld_url}}"><i style="margin-left:20px;font-size:30px;color:#ccc;background:green;border-radius:40px;" class="fa-brands fa-linkedin">{{detail.author.profile.linkeld_url}}</i></a>
+                       {% endif %}
+                        </div>
+                        <div class="card-body">
+                             <!-- Preview image figure-->
+                       {% if detail.author.profile.profile_pic %}
+
+                        <figure class="mb-4"><img class="img-fluid rounded-circle" src="{{detail.author.profile.profile_pic.url}}" alt="my profile pics" /></figure>
+                        {% else %}
+                       <figure class="mb-4"><img class="text-center img-fluid rounded-circle" src="{% static 'images/profile_pics/profile.jpg' %}" alt="my profile pics" /></figure>
+
+                        {% endif %}
+
+
+                        <p id="author"></p>
+
+                        <!-- author's bio and  content-->
+                        {% if detail.author.profile.bio %}
+                           I'm {{detail.author.username}}! {{detail.author.profile.bio}}
+                        {% endif %}
+                        {% endif %}
+                        </div>
+                </div>
+            </div>
+        </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-4 navbar-expand-lg bg-dark">
+             <div class="container"><p class="m-0 text-center text-white"><a class="text-white text-decoration-none" target="_blank" href="#">About Page</a><a class="text-white text-decoration-none" href="#"> | Sitemaps </a>
+             <a class="text-white text-decoration-none" target="_blank" href="mailto:cbnlinkschimexbn@gmail.com"> | Contact Us </a><a class="text-white text-decoration-none" target="_blank" href="#"> | About Us</a> <a class="text-white text-decoration-none" target="_blank" href="#"></a></div>
+            <div class="container"><p class="m-0 text-center text-white"><a class="text-white text-decoration-none" target="_blank" href="{% url 'terms' %}">Terms And Conditions</a>
+            <a class="text-white text-decoration-none" target="_blank" href="{% url 'privacy' %}"> | Privacy And Policy</a></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; benchatronics 2022</p></div>
+             <div class="container"><p class="m-0 text-center text-white">Some Rights Reserved</p></div>
+
+        </footer>
+         <div class="cookie-container">
+      <p>We use cookies in this website to give you the best experience on our site and show you relevant ads or affiliate links,which may earn us some income and on no condition will I earn from you, When you buy product from any of the above link they compensate me. To find out more ,read our
+     <a style="color:#fff;
+        cursor:pointer;
+        text-decoration:underline;" href="{% url 'privacy' %}" target="_blank">Privacy Policy</a> And
+    <a style=" color:#fff;
+        cursor:pointer;
+        text-decoration:underline;" href="{% url 'terms' %}" target="_blank">Terms and Conditions
+    </a>
+      </p>
+      <button  class="cookie-btn">
+          Accept
+      </button>
+       <script src="{% static 'cookie.js' %}" type="text/javascript">
+       </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'scripts.js' %}"></script>
+
+
+{% block extra-js %}
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script>
+ window.comments_props = {% get_commentbox_props for detail %};
+ window.comments_props_override = {
+     allow_comments: {%if detail.allow_comments%}true{%else%}false{%endif%},
+     allow_feedback: true,
+     show_feedback: true,
+     allow_flagging: true,
+     polling_interval: 5000  // In milliseconds.
+ };
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  crossorigin="anonymous"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+<script
+  type="text/javascript"
+  src="{% url 'javascript-catalog' %}"></script>
+<script src="{% static 'django_comments_xtd/js/vendor~plugin-2.9.8.js' %}"></script>
+<script src="{% static 'django_comments_xtd/js/plugin-2.9.8.js' %}"></script>
+<script>
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip({html: true});
+});
+</script>
+{% endblock %}
+    </body>
+</html>
+

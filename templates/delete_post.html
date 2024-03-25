@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block title %} Delete Blog Post {% endblock %}
+{% load static %}
+{% block content %}
+{% if user.is_superuser %}
+
+<div class="container">Delete Post: {{object}}?</div>
+
+<form method="post">
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+
+    <button class="btn btn-primary" type="submit" >DELETE</button><a class="btn btn-success" href="{{request.META.HTTP_REFERER|escape}}"> No take me back</a>
+    </div>
+</form>
+{% endif %}
+
+
+{% endblock %}
+

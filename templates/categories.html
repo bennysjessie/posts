@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<div>Category-{{cate}}</div>
+
+{% for post in categories_post %}
+<hr>
+<div><a href="{{post.get_absolute_url}}">Post Title - {{post.title}}</a></div>
+<div>last updated:{{post.date_added}}</div>
+{% if user.is_authenticated and user.is_staff or user.is_superuser %}
+<br>
+
+<div><a href="{% url 'edit_post' post.slug %}">Edit Post</a></div>
+<br>
+{% endif %}
+{% if user.is_superuser %}
+<div><a href="{% url 'delete_post' post.slug %}">DELET POST</a></div>
+
+{% endif %}
+
+{% endfor %}
+</div>
+{% endblock %}

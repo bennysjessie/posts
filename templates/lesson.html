@@ -1,0 +1,66 @@
+
+{% extends 'main.html' %}
+{% block title %}Benchatronics - Lesson{% endblock %}
+{% block detail %}
+         <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-success border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="text-info fw-bolder">Welcome to Benchatronics</h1>
+                    <p class="text-white lead mb-0">We cover online and Physical classes, just tell your location then we will get you registered</p>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops something's wrong?</title>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<style>
+
+.errorp{
+    font-family: Tahoma;
+    font-size: large;
+}
+</style>
+<div class="container">
+ <center>
+<div class="errorp"> This are the courses we cover both online and offline
+   <hr>
+   <p>
+        Mathematics
+        Physics
+        Chemistry
+        Python
+        Kotlin
+        Java
+        JavaScript
+        CSS
+        HTML
+        PHP
+        RUBY
+        Machine Learning
+        </p>
+
+    <hr>
+
+<p class="text-white lead mb-0"><a  href="{% url 'contact' %}"target="_blank">Contact Us</a></p>
+
+</div>
+</center>
+</div>
+</body>
+</html>
+{% endblock content %}

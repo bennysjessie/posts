@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block title %} Edit School Post {% endblock %}
+{% load static %}
+{% block content %}
+{% if messages %}
+<ul class="messages" >
+    {% for message in messages %}
+    <li
+        {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}
+    </li>
+    {% endfor %}
+
+</ul>
+{% endif %}
+{% if error %}
+{{ error }}
+{% endif %}
+
+
+
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="m-2 container ">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <input type="submit" value="Update Post">
+    </div>
+
+
+</form>
+
+
+<script>
+    var name = "{{user.id}}";
+    document.getElementById("user_author").value = name;
+</script>
+
+{% endblock  %}
+
+
+
+
+

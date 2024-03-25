@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load comments %}
+{% load social_share %}
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "cxgc9wajks");
+</script>
+
+     <!-- Page content-->
+
+             {% block quest %}
+                <div style="background:rgb(65, 20, 3)" class="container-fluid">
+                    <h1 style="color:#fff;" class="text-center mt-4">Similar Post</h1>
+
+                   <p></p>
+                    <p style="color:#fff;">
+
+                      {% for skul in skul %}
+                      <p><a class="text-white" href="{{skul.get_absolute_url}}">{{skul.title|safe}}</a></p>
+                      {% endfor %}
+                    </p>
+
+                </div>
+              {% endblock quest %}
+
+
+
+{% block content %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQF35F2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+ <div class="container mt-2">
+ <article>
+
+                            {% for post in skul reversed %}
+                              <br>
+                              {% if post.slug %}
+                             <p class="fs-4 mb-3 text-decoration-underline">{{post.title|safe|title}}</P>
+                        <p class="text-muted fst-italic mb-2">{{post.read_min}} read</P>
+                        <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'categories' post.category %}">Category-{{post.category|title}}</a>
+                            <div class="text-muted fst-italic mb-2">Last Updated on&nbsp;{{post.date_added|date:"D F Y"}} written&nbsp;by&nbsp;<strong>{{post.author.first_name|title}}</strong></div>
+                            {% if user.is_authenticated and user.is_staff or user.is_superuser %}
+                            {% if user.id == post.author.id %}
+                            <div class="text-muted fst-italic mb-2"><a href="{% url 'edit_post' post.slug %}">Edit Post</a></div>
+                           <div class="text-muted fst-italic mb-2"><a href="{% url 'delete_post' post.slug %}">Delete Post</a></div>
+                           {% endif %}
+                            {% else %}
+                            <p></p>
+                            {% endif %}
+                            <!-- Post categories-->
+                        </header>
+                        <!-- Preview image figure-->
+                        {% if post.image %}
+                        <figure class="mb-4"><img class="img-fluid rounded" src="{{post.image.url}}" alt="blog" /></figure>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <div class="fs-5 mb-4">{{post.content|safe|truncatewords:100}}</div>
+                             <a class="btn btn-primary" href="{{post.get_absolute_url}}">Read more →</a>
+                               <br>
+                               <hr>
+                            <!---
+                             <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
+                            <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
+                             -->
+                             {% else %}
+                             <div></div>
+                             {% endif %}
+                              {% get_comment_count for post as comment_count %}
+                            <p class="date">Published {{ post.publish }}
+                              {% if comment_count %}
+                              &sdot;&nbsp;{{ comment_count }} comment{{ comment_count|pluralize }}
+                              {% endif %}
+                            </p>
+
+
+                             {% endfor %}
+                             </section>
+                    </article>
+                    </div>
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+
+def login_user(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+
+    device_type = ""
+    browser_type = ""
+    browser_version = ""
+    os_type = ""
+    os_version = ""
+
+    if request.user_agent.is_mobile:
+        device_type = "Mobile"
+    if request.user_agent.is_tablet:
+        device_type = "Tablet"
+    if request.user_agent.is_pc:
+        device_type = "PC"
+
+    if request.user_agent.device.family:
+        pass
+
+    if request.user_agent.device:
+        pass
+
+    browser_type = request.user_agent.browser.family
+    browser_version = request.user_agent.browser.version_string
+    os_type = request.user_agent.os.family
+    os_version = request.user_agent.os.version_string
+    details = {
+        "ip": ip,
+        "device_type": device_type,
+        "browser_type": browser_type,
+        "browser_version": browser_version,
+        "os_type":os_type,
+        "os_version":os_version
+       }
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        pass1 = request.POST['pass1']
+
+        user = authenticate(username=username, password=pass1)
+        context={'username':username,
+                  'login_status':True,
+
+
+       }
+        response = redirect('/',context)
+        response.set_cookie('username',username)
+        response.set_cookie('login_status',True)
+
+        if user is not  None:
+            auth.login(request, user)
+            subject = 'welcome to Benchatronics world'
+            message = f'Hi {user.username},You have been logged in benchatronics.\n Details:\nIp = {ip},\n Device:{device_type},\n Browser:{browser_type},\n OS: {os_type} {os_version},\n disregard this mail if it is you else change your password using this link www.benchatronics.com/accounts/password/reset/ \n copy and paste the above link in a browser if it doesn\'t work on click'
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [user.email, ]
+            send_mail( subject, message, email_from, recipient_list )
+            messages.info(request,'You have successfully logged in')
+            return response
+
+
+        else:
+            messages.error(request,'bad credentials')
+            return redirect('login')
+
+
+    return render(request,"login.html",details)
